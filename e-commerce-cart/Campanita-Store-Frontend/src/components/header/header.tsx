@@ -1,6 +1,6 @@
 // Header.tsx
 import React, {useState, ChangeEvent,} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory} from 'react-router-dom';
 import './header.css';
 
 interface HeaderProps{
@@ -8,12 +8,15 @@ interface HeaderProps{
 }
 
 const Header: React.FC<HeaderProps> = ({onSelectedCategory}) => {
+  const history = useHistory();
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   
   const handleCategoryChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const {value}  = e.target;
     setSelectedCategory(value);
     onSelectedCategory(value);
+
+    history.push(`/products?category=${value}`);
   }
 
   return (
@@ -21,7 +24,8 @@ const Header: React.FC<HeaderProps> = ({onSelectedCategory}) => {
       <div className="header-content">
         <nav className="nav-links">
           <Link to="/">Home</Link>
-          <Link to="/products">Products</Link>
+          <Link to="/signup">Sign up</Link>
+          <Link to="/login">Login</Link>
           <Link to="/about">About Us</Link>
           
         </nav>

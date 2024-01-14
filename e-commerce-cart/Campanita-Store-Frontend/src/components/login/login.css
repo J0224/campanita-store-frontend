@@ -1,3 +1,72 @@
-.login-section{
-  background-color: aliceblue;
+/* login.css */
+
+/* Container styling */
+.message-div {
+  display: flexbox;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Login form styling */
+.login-section {
+  max-width: 400px;
+  width: 100%;
+  padding: 40px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+/* Input styling */
+.login-dv input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Button styling */
+.submit-login-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-login-button:hover {
+  background-color: #0056b3;
+}
+
+/* Message styling */
+.message {
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row; /* Updated to display messages from left to right */
+  justify-content: space-between; /* Updated to add space between messages */
+}
+
+.success {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.error {
+  background-color: #f44336;
+  color: #fff;
+}
+
+/* Link styling */
+label a {
+  color: #007bff;
+  text-decoration: none;
+  margin-left: 5px;
 }

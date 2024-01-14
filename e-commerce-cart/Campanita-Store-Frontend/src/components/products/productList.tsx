@@ -4,7 +4,7 @@ import axios from "axios";
 import mongoose from "mongoose";
 import "./productList.css";
 
-interface Product {
+export interface Product {
   name: string;
   category: string;
   description: string;

@@ -1,3 +1,113 @@
-.signup-section{
-  background-color: rgba(255, 237, 213, 0.892);
+/* signup.css */
+
+/* Container styling */
+.message-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  
+}
+
+/* Signup form styling */
+.signup-section {
+  max-width: 500px;
+  width: 100%;
+  padding: 40px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #fff;
+  margin-bottom: 50px;
+  margin-top: 100px;
+}
+
+/* Input styling */
+.special-inputs input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Textarea styling */
+.address-field textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Grid styling for address fields */
+.address-fields {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+/* Button styling */
+.submit-signup {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-signup:hover {
+  background-color: #45a049;
+}
+
+/* Checkbox styling */
+#CheckBox {
+  margin-right: 5px;
+}
+
+/* Message styling */
+.message {
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.success {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.error {
+  background-color: #f44336;
+  color: #fff;
+}
+
+/* Link styling */
+label a {
+  color: #007bff;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .special-inputs {
+    grid-template-columns: 1fr;
+  }
+
+  .address-fields {
+    grid-template-columns: 1fr;
+  }
+  .signup-section{
+    margin-bottom: -40px;
+    margin-top: 144px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+
+  }
 }
