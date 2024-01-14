@@ -24,7 +24,7 @@ const App: React.FC = () => {
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} /> 
         <Route path="/by-category/:categoryId" component={ProducByCategory} />
-        <ProductList onSelectProduct={(product) => console.log(product)} /> 
+       <Route path="products" component={ProductList} />
         <Route path="/add-product" component={() => <AddProductForm onAddProduct={handleAddProduct} />} />
         <Route path="/" component={HomePage}></Route>
        

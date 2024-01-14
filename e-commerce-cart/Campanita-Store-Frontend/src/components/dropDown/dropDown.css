@@ -1,0 +1,74 @@
+/* New styles for the dropdown */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 100%; /* Adjust to make the dropdown appear to the left */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  display: none; /* Initially hide the dropdown */
+  min-width: 300px; /* Set a minimum width to ensure content visibility */
+  padding: 20px; /* Adjust the padding as needed */
+  margin-top: 10px; /* Add margin at the top */
+  margin-left: -50px;
+}
+
+/* Show the dropdown when the .active class is present */
+.dropdown.active {
+  display: block;
+}
+
+/* Style the dropdown header */
+.div-span-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #2e2d2df3; /* Background color for the header */
+  padding: 5px; /* Adjust the padding as needed */
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  position: relative; /* Add relative positioning */
+  z-index: 2; /* Make sure the header is above the dropdown */
+}
+
+.span-menu {
+  color: white; /* Set the color of the Menu span to white */
+  font-size: 16px; /* Adjust the font size */
+  font-weight: bold; /* Make it bold */
+}
+
+/* Style the dropdown items */
+.dropdown ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: relative; /* Add relative positioning */
+  z-index: 1; /* Make sure the dropdown is above the page content */
+}
+
+.dropdown li {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s; /* Add smooth transition for hover effect */
+}
+
+.dropdown li a {
+  color: black;
+  text-decoration: none;
+}
+
+.dropdown li a:hover {
+  color: rgb(0, 0, 202);
+}
+
+.dropdown li:hover {
+  background-color: #f1f1f1;
+}
+
+/* New styles for the dropdown to appear to the left */
+.dropdown.left {
+  right: auto;
+  left: 0;
+}

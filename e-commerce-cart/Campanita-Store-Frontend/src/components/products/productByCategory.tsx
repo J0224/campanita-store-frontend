@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import mongoose from "mongoose";
-import "./productList.css";
+import "./productByCategory.css"
 
 interface Product {
   name: string;

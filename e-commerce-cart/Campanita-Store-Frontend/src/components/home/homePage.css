@@ -1,3 +1,55 @@
-.home{
-  background-color: aqua;
+/* homePage.css */
+
+
+
+section {
+  padding: 0px;
+  margin-top: 0px;
+  
+}
+
+/* Header styling */
+#homePage {
+  background-color: #ffffffec;
+  padding: 0px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 74px;
+}
+
+#homePage:hover{
+  background-color: #ffffff; 
+}
+
+h1 {
+  color: #333;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+
+p {
+  color: #222;
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+/* ProductList styling */
+/* Assuming ProductList and Product have their own styles */
+/* Responsive styling */
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  p {
+    font-size: 1em;
+  }
+  #homePage{
+    margin-top: 200px;
+  }
+  section{
+    margin: 0px;
+    margin-top: 20px;
+  }
 }
