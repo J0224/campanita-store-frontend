@@ -1,0 +1,107 @@
+/* Header Styles */
+.header {
+  background-color: #101010cf;
+  padding: 31px 0; /* Adjusted padding for a more compact header */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header:hover {
+  background-color: #101010c7;
+}
+
+/* Header Content Container */
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Navigation Links Styles */
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-links a {
+  color: rgba(237, 233, 233, 0.781);
+  text-decoration: none;
+  font-size: 18px;
+  margin: 0 15px;
+}
+
+.nav-links a:hover {
+  color: rgb(255, 255, 255);
+}
+
+/* Search Input and Button Styles */
+.search {
+  flex: 1; /* Allow the input to take up available space */
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  margin-right: 1px; /* Add some spacing between input and button */
+}
+
+/* Button Styles */
+button {
+  padding: 10px 20px;
+  background-color: #4caf50; /* Green color for the button */
+  color: #fff; /* White text color */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #5fce62;
+}
+
+.header {
+  padding: 17px 12px;
+}
+@media screen and (min-width: 641px) {
+  .header{
+    padding: 18px 30px;
+    
+  }
+  
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .header{
+    width: 100%;
+  }
+ 
+
+  .nav-links {
+    margin-top: 15px;
+  }
+
+  .nav-links a {
+    margin: 10px 10px;
+  }
+
+  /* Adjust styles for the search input and button on small screens */
+  .search {
+    width: 100%; /* Use full width on small screens */
+    margin-right: 0; /* Remove margin on small screens */
+    margin-top: 10px; /* Add margin at the top for spacing */
+  }
+
+  button {
+    width: 100%; /* Make the button full width on small screens */
+  }
+}

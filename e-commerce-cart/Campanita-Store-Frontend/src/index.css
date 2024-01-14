@@ -1,0 +1,13 @@
+body {
+  background-color: #8585e46d;  /* #e7e7f06d */
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  justify-content: center;
+  display: block;
+  align-items: center;
+  margin: 0 auto;
+}
