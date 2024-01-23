@@ -6,7 +6,6 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  
 }
 
 /* Signup form styling */
@@ -22,17 +21,9 @@
 }
 
 /* Input styling */
-.special-inputs input {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-
-/* Textarea styling */
-.address-field textarea {
+.special-inputs input,
+.address-field textarea,
+.address-fields input {
   width: 100%;
   padding: 12px;
   margin: 10px 0;
@@ -50,17 +41,18 @@
 
 /* Button styling */
 .submit-signup {
-  background-color: #4caf50;
+  background-color: #007bff;
   color: #fff;
   padding: 15px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  width: 100%;
 }
 
 .submit-signup:hover {
-  background-color: #45a049;
+  background-color: #0056b3;
 }
 
 /* Checkbox styling */
@@ -86,11 +78,77 @@
   color: #fff;
 }
 
+
 /* Link styling */
-label a {
+.label-terms a,
+.Span-Signup {
   color: #007bff;
   text-decoration: none;
-  margin-left: 5px;
+  margin-left: 10px;
+}
+
+.forgot-a-password-signup{
+  color: #007bff;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  justify-content: center;
+  margin-left: 200px;
+  text-decoration: none;
+}
+
+.forgot-a-password-signup:hover,
+.label-terms a:hover,
+.Span-Signup:hover {
+  color: #0056b3;
+}
+
+.signup-section p{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  display: block;
+  
+}
+
+.signin{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.signin:hover{
+  color: #0056b3;
+}
+
+/* Form title */
+.Span-Signup {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  display: block;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Terms and conditions label */
+.label-terms {
+  display: block;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Checkbox label */
+.label-terms a {
+  font-weight: bold;
 }
 
 /* Responsive design */
@@ -102,12 +160,14 @@ label a {
   .address-fields {
     grid-template-columns: 1fr;
   }
-  .signup-section{
-    margin-bottom: -40px;
-    margin-top: 144px;
+  .signup-section {
+    margin-bottom: 40px;
+    margin-top: 240px;
     margin-left: 10px;
     margin-right: 10px;
     padding: 10px;
-
+  }
+  .forgot-a-password-signup{
+    margin-left: 120px;
   }
 }

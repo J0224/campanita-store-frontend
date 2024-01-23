@@ -1,41 +1,69 @@
 /* homePage.css */
 
-
-
 section {
-  padding: 0px;
-  margin-top: 0px;
-  
+  padding: 0;
+  margin-top: 0;
+ 
 }
 
 /* Header styling */
 #homePage {
   background-color: #ffffffec;
-  padding: 0px;
+  padding: 0;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   text-align: center;
-  margin-top: 74px;
+  margin-top: 72px;
 }
 
-#homePage:hover{
-  background-color: #ffffff; 
+#homePage:hover {
+  background-color: #ffffff;
 }
 
 h1 {
-  color: #333;
+  color: #0008c8ab;
   font-size: 2.5em;
-  margin-bottom: 10px;
+  margin-bottom: 0;
   padding: 20px;
 }
 
 p {
-  color: #222;
+  color: #0008c8e3;
   font-size: 1.2em;
-  margin-bottom: 30px;
 }
 
-/* ProductList styling */
-/* Assuming ProductList and Product have their own styles */
+
+/* Cross-picture styling */
+.cross-picture {
+  position: relative;
+  zoom: normal;
+  width: 100%;
+  height: 400px; 
+  margin: 0 auto;
+  overflow: hidden; /* Ensure images stay within the square container */
+}
+
+.cross-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover ensures the entire image is visible and centered */
+  transition: transform 0.3s ease; /* Adding smooth transform transition on hover */
+}
+
+.cross-picture:hover img {
+  transform: scale(1.1); /* Enlarge the image on hover */
+}
+
+.cross-line {
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  background-color: #1e1d1d91;
+  bottom: 0;
+  left: 0;
+}
+
+
+
 /* Responsive styling */
 @media screen and (max-width: 768px) {
   h1 {
@@ -45,11 +73,17 @@ p {
   p {
     font-size: 1em;
   }
-  #homePage{
+
+  #homePage {
     margin-top: 200px;
   }
-  section{
-    margin: 0px;
+
+  section {
+    margin: 0;
     margin-top: 20px;
   }
+  .cross-picture{
+    height: 200px;
+  }
 }
+

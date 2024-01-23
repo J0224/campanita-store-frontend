@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import "./signup.css";
 import {
   emailValidator,
@@ -10,7 +10,10 @@ import {
 } from "../validation";
 
 export function Signup() {
-  const [message, setMessage] = useState<{ text: string, type: "success" | "error" } | null>(null);
+  const [message, setMessage] = useState<{
+    text: string;
+    type: "success" | "error";
+  } | null>(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -29,42 +32,69 @@ export function Signup() {
   useEffect(() => {
     if (formSubmitted) {
       // Validations
-      const emailValidationResult: ValidationResult = emailValidator(formData.email);
+      const emailValidationResult: ValidationResult = emailValidator(
+        formData.email
+      );
 
       if (!emailValidationResult.isValid) {
-        setMessage({ text: "Please provide a valid email as: example@gmail.com", type: "error" });
+        setMessage({
+          text: "Please provide a valid email as: example@gmail.com",
+          type: "error",
+        });
         setTimeout(() => setMessage(null), 10000);
         return;
       }
 
-      const passwordValidationResult: ValidationResult = passwordValidator(formData.password);
+      const passwordValidationResult: ValidationResult = passwordValidator(
+        formData.password
+      );
 
       if (!passwordValidationResult.isValid) {
-        setMessage({ text: "Password must be at least 6 characters and have lower and upper case as well digit and number", type: "error" });
+        setMessage({
+          text: "Password must be at least 6 characters and have lower and upper case as well digit and number",
+          type: "error",
+        });
         setTimeout(() => setMessage(null), 10000);
         return;
       }
 
-      const confirmPasswordValidationResult: ValidationResult = passwordValidator(formData.confirmPassword);
+      const confirmPasswordValidationResult: ValidationResult =
+        passwordValidator(formData.confirmPassword);
 
       if (!confirmPasswordValidationResult.isValid) {
-        setMessage({ text: "Password and confirm password must match", type: "error" });
+        setMessage({
+          text: "Password and confirm password must match",
+          type: "error",
+        });
         setTimeout(() => setMessage(null), 10000);
         return;
       }
 
-      const phoneValidationResult: ValidationResult = phoneValidator(formData.phone);
+      const phoneValidationResult: ValidationResult = phoneValidator(
+        formData.phone
+      );
 
       if (!phoneValidationResult.isValid) {
-        setMessage({ text: "Please enter a valid phone number", type: "error" });
+        setMessage({
+          text: "Please enter a valid phone number",
+          type: "error",
+        });
         setTimeout(() => setMessage(null), 10000);
         return;
       }
 
-      const addressValidationResult: ValidationResult = addressValidator(formData.city, formData.state, formData.streetAddress, formData.zipCode);
+      const addressValidationResult: ValidationResult = addressValidator(
+        formData.city,
+        formData.state,
+        formData.streetAddress,
+        formData.zipCode
+      );
 
       if (!addressValidationResult.isValid) {
-        setMessage({ text: "Please add a valid address City, State, Street Address and Postal Code", type: "error" });
+        setMessage({
+          text: "Please add a valid address City, State, Street Address and Postal Code",
+          type: "error",
+        });
         setTimeout(() => setMessage(null), 10000);
         return;
       }
@@ -84,7 +114,9 @@ export function Signup() {
     }
   }, [formData, formSubmitted, history]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -106,7 +138,10 @@ export function Signup() {
       });
 
       if (response.status === 409) {
-        setMessage({ text: "Email already exists. Please use a different valid email.", type: "error" });
+        setMessage({
+          text: "Email already exists. Please use a different valid email.",
+          type: "error",
+        });
         setTimeout(() => setMessage(null), 20000);
       }
     } catch (error) {
@@ -118,12 +153,24 @@ export function Signup() {
 
   return (
     <div className="message-div">
-      {message && <div className={`message ${message.type === "success" ? "success" : "error"}`}>
-        {message.text}</div>}
+      {message && (
+        <div
+          className={`message ${
+            message.type === "success" ? "success" : "error"
+          }`}
+        >
+          {message.text}
+        </div>
+      )}
 
       <section id="Signup" className="signup-section">
-        <span className="Span">Create Account</span>
-        <form action="register" id="RegisterUser" className="register-user" onSubmit={handleSubmit}>
+        <span className="Span-Signup">Create Account</span>
+        <form
+          action="register"
+          id="RegisterUser"
+          className="register-user"
+          onSubmit={handleSubmit}
+        >
           <div className="special-inputs">
             <input
               type="text"
@@ -178,7 +225,6 @@ export function Signup() {
               required
             />
           </div>
-
           <div className="address-field">
             <textarea
               id="address"
@@ -223,17 +269,21 @@ export function Signup() {
           <button type="submit" id="Submit" className="submit-signup">
             Continue
           </button>
-
-          <label htmlFor="CheckBox">
+          <label htmlFor="CheckBox" className="label-terms">
             <input type="checkbox" id="CheckBox" name="Aceptar" required />
-            By creating an account, you hereby accept the <a href="#">conditions of use</a> and the
-            <a href="#"> Private terms and privacy policy </a> from <a href="campnitastore.com"> CampanitaStore.com </a>
-            Do you have an account already? <a href="http://localhost:5173/login">sign in</a>
+            By creating an account, you hereby accept the{" "}
+            <a href="#"> conditions of use </a> and the
+            <a href="#"> Private terms and privacy policy </a> from{" "}
+            <a href="campnitastore.com">CampanitaStore.com </a>
           </label>
-
           <br />
-
-          <a href="/forgotpassword">Forgot Password?</a>
+          <p> Do you have an account already?</p>{" "}
+          <a className="signin" href="http://localhost:5173/login">
+            Sign in
+          </a>
+          <a className="forgot-a-password-signup" href="/forgotpassword">
+            Forgot Password?
+          </a>
         </form>
       </section>
     </div>

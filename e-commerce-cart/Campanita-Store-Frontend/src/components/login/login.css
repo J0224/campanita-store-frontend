@@ -37,6 +37,7 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  width: 100%;
 }
 
 .submit-login-button:hover {
@@ -65,8 +66,39 @@
 }
 
 /* Link styling */
+
 label a {
   color: #007bff;
   text-decoration: none;
-  margin-left: 5px;
+  margin-left: 180px;
+   
+}
+
+.forgot-a-password {
+  text-decoration: none;
+  margin-left: 150px;
+  color: #007bff;
+}
+
+.forgot-a-password:hover{
+  color: #0056b3; 
+}
+
+label a:hover{
+  color: #0056b3; 
+}
+
+
+label p{
+  margin-top: 40px;
+  text-align: center;
+ 
+}
+
+.span-login{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  display: block;
+ 
 }

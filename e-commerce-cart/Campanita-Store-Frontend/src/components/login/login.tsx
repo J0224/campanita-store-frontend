@@ -138,13 +138,13 @@ export function Login() {
           </button>
 
           <label>
-            Do you not have an account yet?{" "}
+           <p> Do you not have an account yet?</p>{" "}
             <a href="http://localhost:5173/signup">Sign up</a>
           </label>
 
           <br />
 
-          <a href="/forgotpassword">Forgot Password?</a>
+          <a className="forgot-a-password" href="/forgotpassword">Forgot Password?</a>
         </form>
       </section>
     </div>

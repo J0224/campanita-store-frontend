@@ -2,7 +2,7 @@
 .dropdown {
   position: absolute;
   top: 100%;
-  right: 100%; /* Adjust to make the dropdown appear to the left */
+  right: 100%; /* Adjusted to make the dropdown appear to the left */
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -10,8 +10,8 @@
   z-index: 1;
   display: none; /* Initially hide the dropdown */
   min-width: 300px; /* Set a minimum width to ensure content visibility */
-  padding: 20px; /* Adjust the padding as needed */
-  margin-top: 10px; /* Add margin at the top */
+  padding: 20px; 
+  margin-top: 10px; 
   margin-left: -50px;
 }
 

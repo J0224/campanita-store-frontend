@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
@@ -100,10 +101,14 @@ export const ProducByCategory: React.FC<ProducByCategoryProps> = () => {
               <div className="product-sku-by-category">
                 <span>SKU</span> {product.sku}
               </div>
-              <button onClick={() => addToCart(product)}>Add to Cart</button>
-              <Link to={`/by-category/${product.category}`}>
-                View Details
-              </Link>
+              <Link to={`/by-category/${product.category}`} className="product-details-link">
+               View Details
+                </Link>
+
+       <button onClick={() => addToCart(product)} className="add-to-cart-button">
+         Add to Cart
+       </button>
+
             </div>
           </li>
         ))}

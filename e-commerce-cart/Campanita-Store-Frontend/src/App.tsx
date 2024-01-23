@@ -1,34 +1,51 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React, { useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  useLocation,
+} from "react-router-dom";
 import { ProducByCategory } from "./components/products/productByCategory";
 import Footer from "./components/footer/footer";
 import Header from "./components/header/header";
-import {ProductList} from "./components/products/productList";
-import {Signup} from "./components/signup/signup";
-import {Login} from "./components/login/login";
+import { ProductList } from "./components/products/productList";
+import { Signup } from "./components/signup/signup";
+import { Login } from "./components/login/login";
 import AddProductForm from "./components/addProducts/addProduct";
 import { HomePage } from "./components/home/homePage";
 import "./App.css";
 
 const App: React.FC = () => {
   const handleCategorySelection = (category: string) => {
-    // You can perform any actions based on the selected category here
-    console.log('Selected Category:', category);
-    
+    console.log("Selected Category:", category);
+  };
+
+  // Scroll to top on route change
+  const ScrollToTop = () => {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
+
+    return null;
   };
 
   return (
     <Router>
+      <ScrollToTop />
       <Header onSelectedCategory={handleCategorySelection} />
       <Switch>
         <Route path="/signup" component={Signup} />
-        <Route path="/login" component={Login} /> 
+        <Route path="/login" component={Login} />
         <Route path="/by-category/:categoryId" component={ProducByCategory} />
-       <Route path="products" component={ProductList} />
-        <Route path="/add-product" component={() => <AddProductForm onAddProduct={handleAddProduct} />} />
+        <Route path="products" component={ProductList} />
+        <Route
+          path="/add-product"
+          component={() => <AddProductForm onAddProduct={() => {}} />}
+        />
+
         <Route path="/" component={HomePage}></Route>
-       
-        {/* Add more routes as needed */}
       </Switch>
       <Footer />
     </Router>
@@ -36,7 +53,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-
-
-
-        

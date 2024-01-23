@@ -52,15 +52,15 @@
 /* Button Styles */
 button {
   padding: 10px 20px;
-  background-color: #4caf50; /* Green color for the button */
-  color: #fff; /* White text color */
+  background-color: #2c8ff9f7; 
+  color: #fff; 
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #5fce62;
+  background-color: #429dfff7
 }
 
 .header {
