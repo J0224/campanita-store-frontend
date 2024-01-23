@@ -152,7 +152,7 @@ export function Signup() {
   };
 
   return (
-    <div className="message-div">
+    <div className="signup-div">
       {message && (
         <div
           className={`message ${

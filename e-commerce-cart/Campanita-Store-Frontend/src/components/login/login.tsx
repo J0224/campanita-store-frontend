@@ -90,7 +90,7 @@ export function Login() {
   };
 
   return (
-    <div className="message-div">
+    <div className="login-div">
       {message && (
         <div className={`message ${message.type === "success" ? "success" : "error"}`}>
           {message.text}
