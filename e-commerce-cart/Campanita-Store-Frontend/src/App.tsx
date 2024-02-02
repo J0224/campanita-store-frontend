@@ -13,6 +13,8 @@ import { Signup } from "./components/signup/signup";
 import { Login } from "./components/login/login";
 import AddProductForm from "./components/addProducts/addProduct";
 import { HomePage } from "./components/home/homePage";
+import { ForgotPassword } from "./components/forgotPassword/forgotPassword";
+import { ResetPassword } from "./components/resetPassword/resetPassword";
 import "./App.css";
 
 const App: React.FC = () => {
@@ -38,6 +40,8 @@ const App: React.FC = () => {
       <Switch>
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />
+        <Route path="/forgotpassword" component={ForgotPassword} />
+        <Route path="/resetpassword/:resetToken" component={ResetPassword} />
         <Route path="/by-category/:categoryId" component={ProducByCategory} />
         <Route path="products" component={ProductList} />
         <Route

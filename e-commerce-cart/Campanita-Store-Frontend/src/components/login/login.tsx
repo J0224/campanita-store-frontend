@@ -5,7 +5,7 @@ import {
   passwordValidator,
   ValidationResult,
 } from "../validation";
-import "./login.css"
+import "./login.css";
 
 export function Login() {
   const history = useHistory();
@@ -14,7 +14,10 @@ export function Login() {
     password: "",
   });
 
-  const [message, setMessage] = useState<{ text: string; type: "success" | "error" } | null>(null);
+  const [message, setMessage] = useState<{
+    text: string;
+    type: "success" | "error";
+  } | null>(null);
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
@@ -56,7 +59,7 @@ export function Login() {
 
       if (!response.ok) {
         setMessage({
-          text: data.error || "An error occurred during login",
+          text: data.error || "An error occurred during login.",
           type: "error",
         });
         setTimeout(() => setMessage(null), 10000);
@@ -65,23 +68,23 @@ export function Login() {
 
       if (response.status === 401) {
         setMessage({
-          text: "Unauthorized, please contact an admin or sign up",
+          text: "Unauthorized, please contact an admin or sign up.",
           type: "error",
         });
-        setTimeout(() => setMessage(null), 20000);
+        setTimeout(() => setMessage(null), 10000);
       } else {
         setMessage({
-          text: "Welcome, sign in successfully",
+          text: "Welcome, sign in successfully.",
           type: "success",
         });
         setTimeout(() => {
           setMessage(null);
           history.push("/products");
-        }, 3500);
+        }, 5000);
       }
     } catch (error) {
       setMessage({
-        text: "An error occurred during login, 5 consecutive fails attempt lock your account",
+        text: "An error occurred during login, 5 consecutive fails attempt lock your account.",
         type: "error",
       });
       setTimeout(() => setMessage(null), 10000);
@@ -92,7 +95,11 @@ export function Login() {
   return (
     <div className="login-div">
       {message && (
-        <div className={`message ${message.type === "success" ? "success" : "error"}`}>
+        <div
+          className={`message ${
+            message.type === "success" ? "success" : "error"
+          }`}
+        >
           {message.text}
         </div>
       )}
@@ -105,7 +112,7 @@ export function Login() {
           className="login-form"
           onSubmit={handleSubmit}
         >
-          <div className="login-dv">
+          <div className="login-div-ipunt">
             <input
               type="email"
               placeholder="Email"
@@ -138,13 +145,15 @@ export function Login() {
           </button>
 
           <label>
-           <p> Do you not have an account yet?</p>{" "}
+            <p> Do you not have an account yet?</p>{" "}
             <a href="http://localhost:5173/signup">Sign up</a>
           </label>
 
           <br />
 
-          <a className="forgot-a-password" href="/forgotpassword">Forgot Password?</a>
+          <a className="forgot-a-password" href="/forgotpassword">
+            Forgot Password?
+          </a>
         </form>
       </section>
     </div>

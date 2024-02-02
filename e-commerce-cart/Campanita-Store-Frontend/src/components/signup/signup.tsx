@@ -101,16 +101,6 @@ export function Signup() {
 
       // Reset formSubmitted to prevent unnecessary re-execution of this effect
       setFormSubmitted(false);
-
-      // Display welcome message only after successful signup
-      setMessage({ text: "Welcome to Campanita Store", type: "success" });
-
-      // Clear the welcome message after a delay
-      setTimeout(() => {
-        setMessage(null);
-        // Redirect to the homepage on successful signup
-        history.push("/");
-      }, 10000);
     }
   }, [formData, formSubmitted, history]);
 
@@ -143,6 +133,19 @@ export function Signup() {
           type: "error",
         });
         setTimeout(() => setMessage(null), 20000);
+      } else if (response.ok) {
+        // Display welcome message only after successful signup
+        setMessage({
+          text: "Signup Successfull. Welcome to Campanita Store",
+          type: "success",
+        });
+
+        // Clear the welcome message after a delay
+        setTimeout(() => {
+          setMessage(null);
+          // Redirect to the homepage on successful signup
+          history.push("/");
+        }, 10000);
       }
     } catch (error) {
       setMessage({ text: "An error occurred", type: "error" });

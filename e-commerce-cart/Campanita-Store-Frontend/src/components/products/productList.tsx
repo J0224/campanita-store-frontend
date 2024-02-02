@@ -30,7 +30,12 @@ interface ProductListProps {
   onSelectProduct: (product: Product) => void;
 }
 
-export const ProductList: React.FC<ProductListProps> = ({ onSelectProduct }) => {
+export const ProductList: React.FC<ProductListProps> = ({
+  onSelectProduct,
+}) => {
+  {
+    onSelectProduct;
+  }
   const [products, setProducts] = useState<Product[]>([]);
   const [cart, setCart] = useState<CartItem[]>([]);
   const [loading, setLoading] = useState(true);
@@ -45,6 +50,10 @@ export const ProductList: React.FC<ProductListProps> = ({ onSelectProduct }) => 
     color: null,
     size: null,
   });
+
+  {
+    cart;
+  }
 
   useEffect(() => {
     const fetchProducts = async () => {

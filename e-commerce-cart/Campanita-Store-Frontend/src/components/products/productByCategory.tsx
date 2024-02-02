@@ -1,9 +1,8 @@
-
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import mongoose from "mongoose";
-import "./productByCategory.css"
+import "./productByCategory.css";
 
 interface Product {
   name: string;
@@ -16,15 +15,6 @@ interface Product {
   sku: string;
   image: { filePath: string };
   _id: mongoose.Types.ObjectId;
-}
-
-interface CartItem {
-  _id: mongoose.Types.ObjectId;
-  name: string;
-  price: number;
-  quantity: number;
-  subTotal: number;
-  total: number;
 }
 
 interface ProducByCategoryProps {
@@ -40,9 +30,11 @@ export const ProducByCategory: React.FC<ProducByCategoryProps> = () => {
   useEffect(() => {
     const fetchProductsByCategory = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/products/by-category?category=${categoryId}`);
+        const response = await axios.get(
+          `http://localhost:8000/api/products/by-category?category=${categoryId}`
+        );
         setProducts(response.data);
-        console.log('Selected category ID:', categoryId);
+        console.log("Selected category ID:", categoryId);
       } catch (error) {
         setError("Error fetching products");
       } finally {
@@ -57,20 +49,23 @@ export const ProducByCategory: React.FC<ProducByCategoryProps> = () => {
 
   const addToCart = async (product: Product) => {
     try {
-      const response = await axios.post("http://localhost:8000/api/cart/add-product", {
-        product: {
-          _id: product._id,
-          name: product.name,
-          price: product.price,
-          category: product.category,
-        },
-        quantity: 1,
-      });
+      const response = await axios.post(
+        "http://localhost:8000/api/cart/add-product",
+        {
+          product: {
+            _id: product._id,
+            name: product.name,
+            price: product.price,
+            category: product.category,
+          },
+          quantity: 1,
+        }
+      );
 
       // Handle the cart state as needed
       console.log("Product added successfully to cart:", response.data.items);
     } catch (error) {
-      console.error('Error adding product to cart:', error);
+      console.error("Error adding product to cart:", error);
     }
   };
 
@@ -83,12 +78,18 @@ export const ProducByCategory: React.FC<ProducByCategoryProps> = () => {
         {products.map((product: Product) => (
           <li className="product-li-by-category" key={product._id.toString()}>
             {product.image && (
-              <img src={product.image.filePath} alt={product.name} className="product-img-by-category" />
+              <img
+                src={product.image.filePath}
+                alt={product.name}
+                className="product-img-by-category"
+              />
             )}
 
             <div className="product-details-by-category">
               <div className="product-name-by-category">{product.name}</div>
-              <div className="product-desc-by-category">{product.description}</div>
+              <div className="product-desc-by-category">
+                {product.description}
+              </div>
               <div className="product-price-by-category">
                 <span>Price: US$</span> {product.price}
               </div>
@@ -101,14 +102,19 @@ export const ProducByCategory: React.FC<ProducByCategoryProps> = () => {
               <div className="product-sku-by-category">
                 <span>SKU</span> {product.sku}
               </div>
-              <Link to={`/by-category/${product.category}`} className="product-details-link">
-               View Details
-                </Link>
+              <Link
+                to={`/by-category/${product.category}`}
+                className="product-details-link"
+              >
+                View Details
+              </Link>
 
-       <button onClick={() => addToCart(product)} className="add-to-cart-button">
-         Add to Cart
-       </button>
-
+              <button
+                onClick={() => addToCart(product)}
+                className="add-to-cart-button"
+              >
+                Add to Cart
+              </button>
             </div>
           </li>
         ))}
