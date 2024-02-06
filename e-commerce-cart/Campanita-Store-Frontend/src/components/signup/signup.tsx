@@ -9,6 +9,8 @@ import {
   addressValidator,
 } from "../validation";
 
+import { useAuth } from "../auth/authProvider";
+
 export function Signup() {
   const [message, setMessage] = useState<{
     text: string;
@@ -28,6 +30,7 @@ export function Signup() {
     zipCode: "",
   });
   const history = useHistory();
+  const { login } = useAuth();
 
   useEffect(() => {
     if (formSubmitted) {
@@ -102,7 +105,7 @@ export function Signup() {
       // Reset formSubmitted to prevent unnecessary re-execution of this effect
       setFormSubmitted(false);
     }
-  }, [formData, formSubmitted, history]);
+  }, [formData, formSubmitted, history, login]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -132,13 +135,15 @@ export function Signup() {
           text: "Email already exists. Please use a different valid email.",
           type: "error",
         });
-        setTimeout(() => setMessage(null), 20000);
+        setTimeout(() => setMessage(null), 10000);
       } else if (response.ok) {
         // Display welcome message only after successful signup
         setMessage({
           text: "Signup Successfull. Welcome to Campanita Store",
           type: "success",
         });
+
+        login(formData.name);
 
         // Clear the welcome message after a delay
         setTimeout(() => {

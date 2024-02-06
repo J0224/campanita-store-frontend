@@ -1,5 +1,5 @@
 // Header.tsx
-import React, { useState, ChangeEvent, useEffect } from "react";
+import React, { useState, ChangeEvent } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./header.css";
 import MenuIcon from "../menu/menu";
@@ -7,26 +7,14 @@ import { useAuth } from "../auth/authProvider";
 
 interface HeaderProps {
   onSelectedCategory: (category: string) => void;
+  userFirstName: string | null;
 }
 
 const Header: React.FC<HeaderProps> = ({ onSelectedCategory }) => {
   const history = useHistory();
   const [selectedCategory, setSelectedCategory] = useState<string>("");
-  const [isLoggedInLocal, setLoggedInLocal] = useState<boolean>(false);
-  const [userFirstNameLocal, setUserFirstNameLocal] = useState<string | null>(
-    null
-  );
 
   const { isLoggedIn, logout, userFirstName } = useAuth();
-
-  useEffect(() => {
-    setLoggedInLocal(isLoggedIn);
-    setUserFirstNameLocal(userFirstName);
-  }, [isLoggedIn, userFirstName]);
-
-  console.log("Is Logged In:", isLoggedInLocal);
-  console.log("This is the userFirstName:", userFirstNameLocal);
-  console.log("This is the :");
 
   const handleCategoryChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const { value } = e.target;

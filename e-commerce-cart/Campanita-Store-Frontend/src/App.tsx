@@ -5,6 +5,7 @@ import {
   Switch,
   useHistory,
 } from "react-router-dom";
+import { useAuth } from "./components/auth/authProvider";
 import { ProducByCategory } from "./components/products/productByCategory";
 import Footer from "./components/footer/footer";
 import Header from "./components/header/header";
@@ -16,11 +17,10 @@ import { HomePage } from "./components/home/homePage";
 import { ForgotPassword } from "./components/forgotPassword/forgotPassword";
 import { ResetPassword } from "./components/resetPassword/resetPassword";
 import "./App.css";
-import { useAuth } from "./components/auth/authProvider";
 import ScrollToTop from "./components/scrollToTop";
 
 const App: React.FC = () => {
-  const { logout, lastActivity } = useAuth();
+  const { logout, lastActivity, userFirstName } = useAuth();
   const history = useHistory();
 
   // Logout user after 30 minutes of inactivity
@@ -43,14 +43,15 @@ const App: React.FC = () => {
     };
   }, [lastActivity, logout]);
 
-  const handleCategorySelection = (category: string) => {
-    
-  };
+  const handleCategorySelection = (category: string) => {};
 
   return (
     <Router>
       <ScrollToTop />
-      <Header onSelectedCategory={handleCategorySelection} />
+      <Header
+        onSelectedCategory={handleCategorySelection}
+        userFirstName={userFirstName}
+      />
       <Switch>
         <Route path="/signup" component={Signup} />
         <Route path="/login" component={Login} />

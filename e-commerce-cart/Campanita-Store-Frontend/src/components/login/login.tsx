@@ -81,15 +81,16 @@ export function Login() {
           type: "error",
         });
         setTimeout(() => setMessage(null), 10000);
-      } else {
+      }
+
+      if (response.status === 200) {
         setMessage({
-          text: "Welcome! Sign in successful.",
+          text: `Welcome, ${data.firstName}! Sign in successful.`,
           type: "success",
         });
         setTimeout(() => {
           setMessage(null);
-          handleSuccessfulLogin(data.firstName);
-          console.log("This is the data.firstName:", data.firstName);
+          handleSuccessfulLogin(data.firstName); // Logging in with the user's first name
         }, 5000);
       }
     } catch (error) {
