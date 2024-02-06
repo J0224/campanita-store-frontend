@@ -109,7 +109,7 @@
 }
 
 @media screen and (min-width: 320px) {
-  .product-list-div{
+  .product-list-div-by-category{
     margin-top: 73px;
     width: 100%;
     padding: 10px;
@@ -129,8 +129,8 @@
     
   }
   .product-list-div-by-category{
-    margin-top: 177px;
-    width: 100%;
+    margin-top: 240px;
+    width: 106%;
     padding: 10px;
     margin-bottom: -1px;
   }

@@ -1,3 +1,4 @@
+// Login.tsx
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import {
@@ -6,9 +7,12 @@ import {
   ValidationResult,
 } from "../validation";
 import "./login.css";
+import { useAuth } from "../auth/authProvider";
 
 export function Login() {
   const history = useHistory();
+  const { login } = useAuth();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -18,6 +22,11 @@ export function Login() {
     text: string;
     type: "success" | "error";
   } | null>(null);
+
+  const handleSuccessfulLogin = (firstName: string) => {
+    login(firstName);
+    history.push("/");
+  };
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
@@ -38,7 +47,7 @@ export function Login() {
       );
 
       setMessage({
-        text: "Invalid inputs. Please check the form 5 fails attempt lack your account.",
+        text: "Invalid inputs. Please check the form. 5 failed attempts will lock your account.",
         type: "error",
       });
       setTimeout(() => setMessage(null), 10000);
@@ -74,17 +83,18 @@ export function Login() {
         setTimeout(() => setMessage(null), 10000);
       } else {
         setMessage({
-          text: "Welcome, sign in successfully.",
+          text: "Welcome! Sign in successful.",
           type: "success",
         });
         setTimeout(() => {
           setMessage(null);
-          history.push("/products");
+          handleSuccessfulLogin(data.firstName);
+          console.log("This is the data.firstName:", data.firstName);
         }, 5000);
       }
     } catch (error) {
       setMessage({
-        text: "An error occurred during login, 5 consecutive fails attempt lock your account.",
+        text: "An error occurred during login. 5 consecutive failed attempts will lock your account.",
         type: "error",
       });
       setTimeout(() => setMessage(null), 10000);
@@ -112,7 +122,7 @@ export function Login() {
           className="login-form"
           onSubmit={handleSubmit}
         >
-          <div className="login-div-ipunt">
+          <div className="login-div-input">
             <input
               type="email"
               placeholder="Email"
@@ -145,7 +155,7 @@ export function Login() {
           </button>
 
           <label>
-            <p> Do you not have an account yet?</p>{" "}
+            <p> Don't have an account yet?</p>{" "}
             <a href="http://localhost:5173/signup">Sign up</a>
           </label>
 

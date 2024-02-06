@@ -1,5 +1,5 @@
-/* login.css */
 
+/* login.css */
 /* Container styling */
 .login-div {
   display: flex;
@@ -19,7 +19,7 @@
 }
 
 /* Input styling */
-.login-div-ipunt input {
+.login-div-input input {
   width: 100%;
   padding: 12px;
   margin: 10px 0;
@@ -51,8 +51,8 @@
   border-radius: 5px;
   font-size: 14px;
   display: flex;
-  flex-direction: row; /* Updated to display messages from left to right */
-  justify-content: space-between; /* Updated to add space between messages */
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .success {
@@ -66,12 +66,10 @@
 }
 
 /* Link styling */
-
 label a {
   color: #007bff;
   text-decoration: none;
   margin-left: 180px;
-   
 }
 
 .forgot-a-password {
@@ -80,25 +78,29 @@ label a {
   color: #007bff;
 }
 
-.forgot-a-password:hover{
-  color: #0056b3; 
+.forgot-a-password:hover {
+  color: #0056b3;
 }
 
-label a:hover{
-  color: #0056b3; 
+label a:hover {
+  color: #0056b3;
 }
 
-
-label p{
+label p {
   margin-top: 40px;
   text-align: center;
- 
 }
 
-.span-login{
+.span-login {
   margin-top: 20px;
   margin-bottom: 20px;
   text-align: center;
   display: block;
- 
+}
+
+@media screen  and (max-width: 768px) {
+  .login-section {
+    margin: 10px;
+      margin-top: 250px;
+  }
 }

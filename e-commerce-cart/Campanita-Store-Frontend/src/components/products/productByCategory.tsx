@@ -94,11 +94,12 @@ export const ProducByCategory: React.FC<ProducByCategoryProps> = () => {
                 <span>Price: US$</span> {product.price}
               </div>
               <div className="product-color-by-category">
-                <span>Color</span> {product.color}
+                <span>Color</span> {product.color.join(", ")}
               </div>
               <div className="product-size-by-category">
-                <span>Size</span> {product.size}
+                <span>Size</span> {product.size.join(", ")}
               </div>
+
               <div className="product-sku-by-category">
                 <span>SKU</span> {product.sku}
               </div>
